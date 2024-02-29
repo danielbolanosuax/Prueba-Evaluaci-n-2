@@ -1,9 +1,7 @@
+from vector3d import Vector3D
 
 class Capella:
     def __init__(self):
         self.nombre = "Capella"
-        self.tipo = "Estrella gigante amarilla"
-        self.constelacion = "Auriga"
-    
-    def info(self):
-        return f"{self.nombre}, una {self.tipo} en la constelación {self.constelacion}."
+        self.posicion = Vector3D(0, 0, 0)  # Ajusta las coordenadas según sea necesario
+        self.galaxia = "Vía Láctea"  # Asigna el nombre de la galaxia correctamente

@@ -1,8 +1,7 @@
+from vector3d import Vector3D
+
 class AlphaCentauri:
     def __init__(self):
         self.nombre = "Alpha Centauri"
-        self.tipo = "Sistema estelar triple"
-        self.constelacion = "Centaurus"
-    
-    def info(self):
-        return f"{self.nombre}, un {self.tipo} en la constelación {self.constelacion}."
+        self.posicion = Vector3D(0, 0, 0)  # Ajusta las coordenadas según sea necesario
+        self.galaxia = "Vía Láctea"  # Asigna el nombre de la galaxia correctamente

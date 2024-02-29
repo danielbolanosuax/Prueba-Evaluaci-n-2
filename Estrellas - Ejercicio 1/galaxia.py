@@ -1,10 +1,10 @@
 class Galaxia:
     def __init__(self, nombre):
         self.nombre = nombre
-        self.sistemas = []
+        self.estrellas = []
 
-    def agregar_sistema(self, sistema):
-        self.sistemas.append(sistema)
+    def agregar_estrella(self, estrella):
+        self.estrellas.append(estrella)
 
-    def info(self):
-        return f"Galaxia {self.nombre} con {len(self.sistemas)} sistemas solares."
+    def __str__(self):
+        return f"Galaxia {self.nombre} con {len(self.estrellas)} estrellas."
