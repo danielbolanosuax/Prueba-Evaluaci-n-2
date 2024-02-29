@@ -1,35 +1,46 @@
 import math
+import random
 
 class Estrella:
-    def __init__(self, x=0, y=0, z=0):
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self, x=None, y=None, z=None):
+        # Si no se proporcionan coordenadas, generar valores aleatorios entre -100 y 100
+        self.x = x if x is not None else random.uniform(-100, 100)
+        self.y = y if y is not None else random.uniform(-100, 100)
+        self.z = z if z is not None else random.uniform(-100, 100)
 
     def __str__(self):
-        return f"Estrella({self.x}, {self.y}, {self.z})"
+        return f"Estrella en ({self.x:.2f}, {self.y:.2f}, {self.z:.2f})"
 
     def galaxia(self):
-        if self.x**2 + self.y**2 + self.z**2 < 10000:
-            return "Vía Láctea"
+        # Condición arbitraria para la clasificación de la galaxia
+        if self.x**2 + self.y**2 + self.z**2 < 5000:
+            return "Galaxia Local"
         else:
-            return "Andrómeda"
+            return "Galaxia Lejana"
 
-    def distancia(self, otra):
-        return math.sqrt((self.x - otra.x)**2 + (self.y - otra.y)**2 + (self.z - otra.z)**2)
+    @staticmethod
+    def distancia(estrella1, estrella2):
+        return math.sqrt((estrella1.x - estrella2.x)**2 + (estrella1.y - estrella2.y)**2 + (estrella1.z - estrella2.z)**2)
 
-# Creación de estrellas
-estrella_a = Estrella(2, 3, 1)
-estrella_b = Estrella(4, 4, 4)
-estrella_c = Estrella(-3, -1, 0)
+# Creación de tres estrellas con coordenadas aleatorias
+estrella1 = Estrella()
+estrella2 = Estrella()
+estrella3 = Estrella()
 
-# Impresión de estrellas y sus galaxias
-estrellas = [estrella_a, estrella_b, estrella_c]
-for estrella in estrellas:
-    print(f"{estrella} en la galaxia {estrella.galaxia()}")
+# Mostrar información de las estrellas y calcular distancias
+print(estrella1)
+print(estrella2)
+print(estrella3)
 
-# Cálculo de distancias
-distancia_ab = estrella_a.distancia(estrella_b)
-distancia_bc = estrella_b.distancia(estrella_c)
-print(f"Distancia entre A y B: {distancia_ab}")
-print(f"Distancia entre B y C: {distancia_bc}")
+distancia12 = Estrella.distancia(estrella1, estrella2)
+distancia23 = Estrella.distancia(estrella2, estrella3)
+distancia31 = Estrella.distancia(estrella3, estrella1)
+
+print(f"Distancia entre Estrella 1 y Estrella 2: {distancia12:.2f} unidades")
+print(f"Distancia entre Estrella 2 y Estrella 3: {distancia23:.2f} unidades")
+print(f"Distancia entre Estrella 3 y Estrella 1: {distancia31:.2f} unidades")
+
+# Determinar la galaxia de cada estrella
+print(f"Galaxia de Estrella 1: {estrella1.galaxia()}")
+print(f"Galaxia de Estrella 2: {estrella2.galaxia()}")
+print(f"Galaxia de Estrella 3: {estrella3.galaxia()}")
