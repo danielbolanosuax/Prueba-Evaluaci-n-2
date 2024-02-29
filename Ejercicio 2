@@ -1,0 +1,19 @@
+# Texto original
+texto_original = "un día que el viento soplaba con fuerza#mira como se mueve aquella banderola -dijo un monje#lo que se mueve es el viento -respondió otro monje#ni las banderolas ni el viento, lo que se mueve son vuestras mentes -dijo el maestro"
+
+# Paso 1: Dividir el texto en partes
+partes = texto_original.split('#')
+
+# Paso 2 y 3: Capitalizar la primera letra de cada parte y agregar puntuación adecuada
+partes_formateadas = []
+for i, parte in enumerate(partes):
+    parte_capitalizada = parte.capitalize()
+    if i == 0:  # La primera oración termina con puntos suspensivos
+        partes_formateadas.append(parte_capitalizada + "...")
+    else:  # Las demás oraciones terminan con un punto
+        partes_formateadas.append(parte_capitalizada + ".")
+
+# Paso 4: Unir las partes modificadas con saltos de línea
+texto_formateado = "\n\n".join(partes_formateadas)
+
+print(texto_formateado)
